@@ -1,4 +1,4 @@
-export class Search{
+class Search{
     Title:string;
     Year:string;
     imdbID:string;

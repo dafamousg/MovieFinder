@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OmdbApiService} from '../../services/omdb-api.service';
 import {Movie} from '../../Models/movies';
-import {Search, SearchResult} from '../../Models/Search';
+import {SearchResult} from '../../Models/Search';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +19,9 @@ export class HomeComponent implements OnInit {
     this.omdServices.searchMovies().subscribe(search => {
       console.log(search);
       this.searches = search; 
+
+    }, (error) => {
+      console.log('error occured: ', error);
 
     });
       
