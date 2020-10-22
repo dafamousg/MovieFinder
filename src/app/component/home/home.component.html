@@ -1,9 +1,20 @@
-<div class="container" *ngIf="searches" >
-    Resultat:
-    <div *ngFor="let searchResult of searches.Search">
-        {{searchResult.Title}}
-        <br>
-        {{searchResult.Year}}
-        <br><br>
-    </div>
+<div class="container">
+  <div class="container">
+    <img src="https://i.pinimg.com/originals/be/b9/1c/beb91c4fb913bbb224d5e90c5d497016.gif">
+    <!--<img src="https://i.pinimg.com/originals/83/5d/69/835d69badf79fe6a3102e895c091a273.gif">-->
+    <form action="" class="search-bar">
+      <input type="text" required>
+      <button class="search-btn" type="button">
+        <span>Search</span>
+      </button>
+    </form>
+	</div>
+	<div *ngIf="searches" >
+		Result:
+		<div *ngFor="let searchResult of searches.Search">
+			{{searchResult.Title}} ({{searchResult.Year}})
+			<br>
+			<br><br>
+		</div>
+	</div>
 </div>

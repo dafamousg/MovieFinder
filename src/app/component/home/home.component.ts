@@ -24,7 +24,12 @@ export class HomeComponent implements OnInit {
       console.log('error occured: ', error);
 
     });
-      
+  }
+
+  buttonClicked(){
+    var name=document.getElementById('searchText').nodeValue;
+    console.log("I was pressed: ", name);
+    
   }
 
 }
