@@ -1,6 +1,16 @@
+$picWidth:200px;
+$picHeight:($picWidth / (4/6));
+
+
 .poster{
-    height: 250px;
-    width: 150px;
+    height: $picHeight;
+    width: $picWidth;
+}
+
+.poster:hover{
+    height: $picHeight + 50;
+    width: $picWidth + 50;
+    box-shadow: 20px 20px 20px black;
 }
 
 .movie{

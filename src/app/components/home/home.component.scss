@@ -5,6 +5,10 @@
 	padding: 0;
 }
 
+.container{
+	height: 90vh;
+}
+
 .ng-container{
 	display: grid;
 }
@@ -21,7 +25,8 @@
   }
   
   .card{
-    display: inline-block;
+	display: inline-block;
+	padding: 0 40px 43px 0;
   }
 }
 
