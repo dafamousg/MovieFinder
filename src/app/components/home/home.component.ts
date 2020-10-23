@@ -4,8 +4,6 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {OmdbApiService} from '../../services/omdb-api.service';
 import {Movie} from '../../Models/movies';
 import {SearchResult} from '../../Models/Search';
-import { stringify } from 'querystring';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-home',
@@ -28,10 +26,30 @@ export class HomeComponent implements OnInit {
 
     this.movieSearchForm.valueChanges.subscribe(() => {
       let c = this.movieSearchForm.get('searchText').value;
-
+      
       this.searchAPI(c);
       
     });
+  }
+
+  //Gets Array of Movies/Series/Other based on typ string
+  getOneType(type:string){
+    return this.searches.Search?.filter(s => s.Type === type);
+  }
+
+  ifSeriesExist(type:string):boolean{
+    let value = this.searches.Search?.filter(s => s.Type === type);
+    let t:string;
+    
+    value.map(s => {
+      t = s.Type;
+    });
+    
+    if(t === type){
+      return true;
+    }
+
+    return false;
   }
 
   searchAPI(searchText:string){
