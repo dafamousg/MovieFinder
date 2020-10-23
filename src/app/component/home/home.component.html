@@ -2,19 +2,24 @@
   <div class="container">
     <img src="https://i.pinimg.com/originals/be/b9/1c/beb91c4fb913bbb224d5e90c5d497016.gif">
     <!--<img src="https://i.pinimg.com/originals/83/5d/69/835d69badf79fe6a3102e895c091a273.gif">-->
-    <form action="" class="search-bar">
-      <input type="text" required>
+    <form [formGroup]="movieSearchForm" class="search-bar">
+      <input type="text" formControlName="searchText" required>
       <button class="search-btn" type="button">
         <span>Search</span>
       </button>
     </form>
 	</div>
 	<div *ngIf="searches" >
-		Result:
-		<div *ngFor="let searchResult of searches.Search">
-			{{searchResult.Title}} ({{searchResult.Year}})
-			<br>
-			<br><br>
+    Result:
+    <div *ngFor="let searchResult of searches.Search">			
+      <div ngClass="img-grid">
+        <img src="{{searchResult.Poster}}" alt="Image Not Available" style="width:40%">
+        <div class="container">
+          <h4><b>{{searchResult.Title}} ({{searchResult.Year}})</b></h4>
+          <p>{{searchResult.Type}}</p>
+        </div>
+        <br><br>
+      </div> 
 		</div>
 	</div>
 </div>
