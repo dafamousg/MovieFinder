@@ -9,11 +9,9 @@
       </button>
     </form>
 	</div>
-	<div *ngIf="searches" >
-    Result:
+	<div ngClass="img-grid" *ngIf="searches" >
     <div *ngFor="let searchResult of searches.Search">			
-      <div ngClass="img-grid">
-        <img src="{{searchResult.Poster}}" alt="Image Not Available" style="width:40%">
+      <div class="card" style="background: url({{searchResult.Poster}}); background-repeat:no-repeat; height: 10vh;">
         <div class="container">
           <h4><b>{{searchResult.Title}} ({{searchResult.Year}})</b></h4>
           <p>{{searchResult.Type}}</p>
