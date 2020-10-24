@@ -9,29 +9,7 @@
   </form>
 </div>
 
-<div class="ng-container"  *ngIf="searches">
-  <div *ngIf="ifSeriesExist('movie')">Movies:</div>
-  <div class="scrolling-wrapper">
-    <div class="card" *ngFor="let searchResult of getOneType('movie')">
-      <app-movie-search-view [search]="searchResult">  
-      </app-movie-search-view>
-    </div>
-  </div>
 
-  <div *ngIf="ifSeriesExist('series')">Series:</div>
-  <div class="scrolling-wrapper">
-    <div class="card" *ngFor="let searchResult of getOneType('series')">
-      <app-movie-search-view [search]="searchResult">  
-        </app-movie-search-view>
-      </div>
-  </div>
-
-  <div *ngIf="ifSeriesExist('game')">Games:</div>
-  <div class="scrolling-wrapper">
-    <div class="card" *ngFor="let searchResult of getOneType('game')">
-      <app-movie-search-view [search]="searchResult">  
-      </app-movie-search-view>
-    </div>
-  </div>
-</div>
+<app-movie-search-view [searchResult]="searches">  
+</app-movie-search-view>
   

@@ -20,6 +20,9 @@ export class HomeComponent implements OnInit {
   constructor(private omdServices:OmdbApiService, private fb:FormBuilder) { }
 
   ngOnInit(): void {
+
+    this.searchAPI('futurama');
+
     this.movieSearchForm = this.fb.group({
       searchText:''
     });
@@ -27,7 +30,7 @@ export class HomeComponent implements OnInit {
     this.movieSearchForm.valueChanges.subscribe(() => {
       let c = this.movieSearchForm.get('searchText').value;
       
-      this.searchAPI(c);
+      //this.searchAPI(c);
       
     });
   }
