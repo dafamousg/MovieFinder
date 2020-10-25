@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
 import {OmdbApiService} from 'src/app/services/omdb-api.service';
 import {SearchResult} from 'src/app/Models/Search';
+import {MatDialog} from '@angular/material/dialog';
+import { DialogComponent } from '../../dialog/dialog.component';
 
 @Component({
   selector: 'app-movie-search-view',
@@ -22,7 +24,7 @@ export class MovieSearchViewComponent implements OnInit {
   id:any;
   
   
-  constructor(private omdbApi:OmdbApiService) { }
+  constructor(private omdbApi:OmdbApiService, public dialog: MatDialog) { }
   
   ngOnInit(): void {
   }
@@ -40,6 +42,10 @@ export class MovieSearchViewComponent implements OnInit {
       this.trackGamesWidth = this.trackGames.nativeElement.offsetWidth;
       this.checkSizeOfTrack('games');
     }
+  }
+
+  openDialog(){
+    this.dialog.open(DialogComponent);
   }
 
   checkSizeOfTrack(type:string){
