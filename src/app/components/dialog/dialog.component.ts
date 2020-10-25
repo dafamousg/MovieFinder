@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {OmdbApiService} from '../../services/omdb-api.service';
+import {Movie} from '../../Models/Movies';
 
 @Component({
   selector: 'app-dialog',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogComponent implements OnInit {
 
-  constructor() { }
+  movie:Movie;
+  imdbID:string;
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data:string,
+    private omdbServices:OmdbApiService,
+    ) { }
 
   ngOnInit(): void {
+    this.imdbID = this.data
+
+    this.omdbServices.getMovieByID(this.imdbID).subscribe(movieInfo => {
+      this.movie = movieInfo
+    });
+    
   }
 
 }

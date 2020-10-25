@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
 import {OmdbApiService} from 'src/app/services/omdb-api.service';
 import {SearchResult} from 'src/app/Models/Search';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
 
 @Component({
@@ -44,8 +44,18 @@ export class MovieSearchViewComponent implements OnInit {
     }
   }
 
-  openDialog(){
-    this.dialog.open(DialogComponent);
+  openDialog(imdbID:string){
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = imdbID;
+
+    let dialogRef = this.dialog.open(DialogComponent,dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');      
+    })
+
+    
   }
 
   checkSizeOfTrack(type:string){
@@ -76,13 +86,9 @@ export class MovieSearchViewComponent implements OnInit {
 
   hideOrShowNextButton(track:HTMLElement, next:HTMLElement, carouselWidth:number = this.getCarouselWidth()){
     if(track?.offsetWidth < carouselWidth){
-      console.log('adds ' + track.id);
-      
       next.classList.add('hide');
     }
     else{
-      console.log('removes ' + track.id);
-      
       next.classList.remove('hide');
     }
   }
