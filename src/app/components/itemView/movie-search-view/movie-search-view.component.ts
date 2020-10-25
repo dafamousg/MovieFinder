@@ -21,89 +21,84 @@ export class MovieSearchViewComponent implements OnInit {
   }
   
   @HostListener('click',['$event.target']) onClick(e){
-    let carouselWidth = (document.querySelector('.carousel-container') as HTMLElement).offsetWidth;
+    this.organizeButtonPress(e);
+  }
 
-    
+  organizeButtonPress(e:any){
+    //Next buttons for carousel scroll
     let nextMovies:HTMLElement = document.querySelector('.nextMovies');
     let nextSeries:HTMLElement = document.querySelector('.nextSeries');
     let nextGames:HTMLElement = document.querySelector('.nextGames');
+
+    //Prev buttons for carousel scroll
     let prevMovies:HTMLElement = document.querySelector('.prevMovies');
     let prevSeries:HTMLElement = document.querySelector('.prevSeries');
     let prevGames:HTMLElement = document.querySelector('.prevGames');
 
-
+    //Track class for all carousel lists
     let trackMovies:HTMLElement = document.getElementById('movies');
     let trackSeries:HTMLElement = document.getElementById('series');
     let trackGames:HTMLElement = document.getElementById('games');
     
     if(e.className.includes('next')){
       if(e.id === 'movies'){
-        console.log(e.className);
-                
-        prevMovies.classList.add('show');
         this.indexMovies++;
-        trackMovies.style.transform = `translateX(-${this.indexMovies * carouselWidth}px)`;
-        if(trackMovies.offsetWidth - (this.indexMovies * carouselWidth) < carouselWidth){
-          nextMovies.classList.add('hide');
-        }
-
+        this.carouselButtonFunction(e.className,this.indexMovies,nextMovies,trackMovies,prevMovies);
       }
       if(e.id === 'series'){
-        console.log('series');
-        
-        prevSeries.classList.add('show');
         this.indexSeries++;
-        trackSeries.style.transform = `translateX(-${this.indexSeries * carouselWidth}px)`;
-        if(trackSeries.offsetWidth - (this.indexSeries * carouselWidth) < carouselWidth){
-          nextSeries.classList.add('hide');
-        }
+        this.carouselButtonFunction(e.className,this.indexSeries,nextSeries,trackSeries,prevSeries);
       }
       if(e.id === 'games'){
-        console.log('games');
-        
-        prevGames.classList.add('show');
         this.indexGames++;
-        trackGames.style.transform = `translateX(-${this.indexGames * carouselWidth}px)`;
-        if(trackGames.offsetWidth - (this.indexGames * carouselWidth) < carouselWidth){
-          nextGames.classList.add('hide');
-        }
+        this.carouselButtonFunction(e.className,this.indexGames,nextGames,trackGames,prevGames);
       }
     }
 
     if(e.className.includes('prev')){
       if(e.id === 'movies'){
-        nextMovies.classList.remove('hide');
         this.indexMovies--;
-        trackMovies.style.transform = `translateX(-${this.indexMovies * carouselWidth}px)`;
-        if(this.indexMovies === 0){
-          prevMovies.classList.remove('show');
-        }
+        this.carouselButtonFunction(e.className,this.indexMovies,nextMovies,trackMovies,prevMovies);
       }
       if(e.id === 'series'){
-        nextSeries.classList.remove('hide');
         this.indexSeries--;
-        trackSeries.style.transform = `translateX(-${this.indexSeries * carouselWidth}px)`;
-        if(this.indexSeries === 0){
-          prevSeries.classList.remove('show');
-        }
+        this.carouselButtonFunction(e.className,this.indexSeries,nextSeries,trackSeries,prevSeries);
       }
       if(e.id === 'games'){
-        nextGames.classList.remove('hide');
         this.indexGames--;
-        trackGames.style.transform = `translateX(-${this.indexGames * carouselWidth}px)`;
-        if(this.indexGames === 0){
-          prevGames.classList.remove('show');
-        }
-      }
-      
+        this.carouselButtonFunction(e.className,this.indexGames,nextGames,trackGames,prevGames);
+      } 
     }
-    
   }
 
-  doSomething(s:any){
-    console.log(s);
-    
+  carouselButtonFunction(type:string, index:number, next:HTMLElement,
+    track:HTMLElement, prev:HTMLElement){
+      let carouselWidth = (document.querySelector('.carousel-container') as HTMLElement).offsetWidth;
+      
+      //console.log((index * carouselWidth) > track.offsetWidth);
+      
+      if(type.includes('next')){ 
+        if(track.offsetWidth > carouselWidth){
+          prev.classList.add('show');
+        }      
+        if((index * carouselWidth) > (track.offsetWidth - carouselWidth)){
+          track.style.transform = `translateX(-${track.offsetWidth - carouselWidth}px)`;        
+          next.classList.add('hide');
+        }else{
+          track.style.transform = `translateX(-${index * carouselWidth}px)`;        
+        }
+      }
+
+    if(type.includes('prev')){
+      next.classList.remove('hide');
+      this.indexGames--;
+      track.style.transform = `translateX(-${index * carouselWidth}px)`;
+      if(index === 0){
+        prev.classList.remove('show');
+      }
+    }
   }
+
 
 
 
@@ -116,7 +111,7 @@ export class MovieSearchViewComponent implements OnInit {
     let value = this.searchResult.Search?.filter(s => s.Type === type);
     let t:string;
     
-    value.map(s => {
+    value?.map(s => {
       t = s.Type;
     });
     

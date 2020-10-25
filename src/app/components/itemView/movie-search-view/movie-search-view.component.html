@@ -1,7 +1,7 @@
 <div [ngClass]="setClasses()" *ngIf="searchResult">
 
   <div class="container" *ngIf="ifSeriesExist('movie')">Movies:</div>
-  <div class="carousel-container">
+  <div *ngIf="ifSeriesExist('movie')" class="carousel-container">
     <div class="carousel-inner">
       <div id="movies" class="track">
         <div class="card-container" *ngFor="let item of getOneType('movie')">
@@ -15,19 +15,19 @@
       </div>
     </div>
     <div class="nav">
-      <button id="movies" class="prevMovies">
-        <span class="material-icons">keyboard_arrow_left</span>
+      <button id="movies" class="prevMovies material-icons">
+        keyboard_arrow_left
       </button>
-      <button id="movies" class="nextMovies">
-        <span class="material-icons">keyboard_arrow_right</span>
+      <button id="movies" class="nextMovies material-icons">
+        keyboard_arrow_right
       </button>
     </div>
   </div>
 
   <div class="container" *ngIf="ifSeriesExist('series')">Series:</div>
-  <div class="carousel-container">
+  <div *ngIf="ifSeriesExist('series')" class="carousel-container">
     <div class="carousel-inner">
-      <div id="trackSeries" class="track">
+      <div id="series" class="track">
         <div class="card-container" *ngFor="let item of getOneType('series'); let i = index">
           <div class="card">
             <img class="poster" id="{{i}}" src="{{item.Poster}}" alt="Image not available.."/>
@@ -39,19 +39,19 @@
       </div>
     </div>
     <div class="nav">
-      <button id="series" class="prevSeries">
-        <span class="material-icons">keyboard_arrow_left</span>
+      <button id="series" class="prevSeries material-icons">
+        keyboard_arrow_left
       </button>
-      <button id="series" class="nextSeries">
-        <span class="material-icons">keyboard_arrow_right</span>
+      <button id="series" class="nextSeries material-icons">
+        keyboard_arrow_right
       </button>
     </div>
   </div>
 
   <div class="container" *ngIf="ifSeriesExist('game')">Games:</div>
-  <div class="carousel-container">
+  <div *ngIf="ifSeriesExist('game')" class="carousel-container">
     <div class="carousel-inner">
-      <div id="trackGames" class="track">
+      <div id="games" class="track">
         <div class="card-container" *ngFor="let item of getOneType('game')">
           <div class="card">
             <img class="poster" src="{{item.Poster}}" alt="Image not available.."/>
@@ -63,11 +63,11 @@
       </div>
     </div>
       <div class="nav">
-        <button id="games" class="prevGames">
-          <span class="material-icons">keyboard_arrow_left</span>
+        <button id="games" class="prevGames material-icons">
+          keyboard_arrow_left
         </button>
-      <button id="games" class="nextGames">
-        <span class="material-icons">keyboard_arrow_right</span>
+      <button id="games" class="nextGames material-icons">
+        keyboard_arrow_right
       </button>
     </div>
   </div>
