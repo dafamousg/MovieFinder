@@ -5,11 +5,11 @@
     <div class="carousel-inner">
       <div #trackMovies id="movies" class="track">
         <div class="card-container" *ngFor="let item of getOneType('movie')">
-          <div *ngIf="item.Poster !== 'N/A'" class="card">
-            <!-- <div class="info" >
-              {{item.Title}} - {{item.Year}}
-            </div>  -->
-            <img class="poster" src="{{item.Poster}}" alt="Image not available.."/>
+          <div class="card">
+            <img *ngIf="item.Poster !== 'N/A'" class="poster" src="{{item.Poster}}" alt="{{item.Title}}"/>
+            <div *ngIf="item.Poster === 'N/A'" class="repl-poster">
+              <p>{{item.Title}}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -29,11 +29,11 @@
     <div class="carousel-inner">
       <div #trackSeries id="series" class="track">
         <div class="card-container" *ngFor="let item of getOneType('series'); let i = index">
-          <div *ngIf="item.Poster !== 'N/A'" class="card">
-            <img class="poster" id="{{i}}" src="{{item.Poster}}" alt="Image not available.."/>
-            <div class="movie" >
-              <!--<h4><b>{{search.Title}} ({{search.Year}})</b></h4>-->
-            </div> 
+          <div class="card">
+            <img *ngIf="item.Poster !== 'N/A'" class="poster" id="{{i}}" src="{{item.Poster}}" alt="Image not available.."/>
+            <div *ngIf="item.Poster === 'N/A'" class="repl-poster">
+              <p>{{item.Title}}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -53,11 +53,11 @@
     <div class="carousel-inner">
       <div #trackGames id="games" class="track">
         <div class="card-container" *ngFor="let item of getOneType('game')">
-          <div *ngIf="item.Poster !== 'N/A'" class="card">
-            <img class="poster" src="{{item.Poster}}" alt="Image not available.."/>
-            <div class="movie" >
-              <!--<h4><b>{{search.Title}} ({{search.Year}})</b></h4>-->
-            </div> 
+          <div class="card">
+            <img *ngIf="item.Poster !== 'N/A'" class="poster" src="{{item.Poster}}" alt="Image not available.."/>
+            <div *ngIf="item.Poster === 'N/A'" class="repl-poster">
+              <p>{{item.Title}}</p>
+            </div>
           </div>
         </div>
       </div>

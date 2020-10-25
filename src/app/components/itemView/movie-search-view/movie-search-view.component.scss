@@ -88,24 +88,57 @@ $picHeight:($picWidth / (4/6));
     width: $picWidth;
 	height: $picHeight;
     border-radius: 10%;
+    border: 2px solid black;
+    transition: 500ms;
+    background: url("/assets/imageNotFound.gif");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
 }
 .info{
     top: 0;
     visibility: visible;
 }
 
+.repl-poster{
+    background: url("/assets/imageNotFound.gif");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: $picWidth;
+    height: $picHeight;
+    text-align: center;
+    border-radius: 10%;
+    border: 2px solid black;
+    overflow: hidden;
+    transition: 500ms;
+
+    p{
+        padding: 0 5%;
+    }
+}
+.repl-poster:hover{
+    transition: 500ms;
+    height: $picHeight + 50;
+    width: $picWidth + 50;
+    box-shadow: 15px 15px 15px black;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+
 .card:hover{
 
-    .poster{
+    .poster:hover{
+        transition: 500ms;
         height: $picHeight + 50;
         width: $picWidth + 50;
         box-shadow: 15px 15px 15px black;
         margin-bottom: 30px;
         border-radius: 10%;
         cursor: pointer;
+        
     }
     
-    .info{
-        visibility: visible;
-    }
 }

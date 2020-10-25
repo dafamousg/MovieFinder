@@ -28,16 +28,16 @@ export class MovieSearchViewComponent implements OnInit {
   }
   
   ngDoCheck(){
-    if(this.trackMovies?.nativeElement.offsetWidth && this.trackMovies?.nativeElement.offsetWidth !== this.trackMoviesWidth){
-      this.trackMoviesWidth = this.trackMovies?.nativeElement.offsetWidth;
+    if(this.trackMovies?.nativeElement.offsetWidth && this.trackMovies.nativeElement.offsetWidth !== this.trackMoviesWidth){
+      this.trackMoviesWidth = this.trackMovies.nativeElement.offsetWidth;
       this.checkSizeOfTrack('movies');
     }
-    if(this.trackSeries?.nativeElement.offsetWidth && this.trackSeries?.nativeElement.offsetWidth !== this.trackSeriesWidth){
-      this.trackSeriesWidth = this.trackSeries?.nativeElement.offsetWidth;
+    if(this.trackSeries?.nativeElement.offsetWidth && this.trackSeries.nativeElement.offsetWidth !== this.trackSeriesWidth){
+      this.trackSeriesWidth = this.trackSeries.nativeElement.offsetWidth;
       this.checkSizeOfTrack('series');
     }
-    if(this.trackGames?.nativeElement.offsetWidth && this.trackGames?.nativeElement.offsetWidth !== this.trackGamesWidth){
-      this.trackGamesWidth = this.trackGames?.nativeElement.offsetWidth;
+    if(this.trackGames?.nativeElement.offsetWidth && this.trackGames.nativeElement.offsetWidth !== this.trackGamesWidth){
+      this.trackGamesWidth = this.trackGames.nativeElement.offsetWidth;
       this.checkSizeOfTrack('games');
     }
   }
@@ -54,7 +54,7 @@ export class MovieSearchViewComponent implements OnInit {
     let nextGames:HTMLElement = document.querySelector('.nextGames');
 
     switch(type){
-      case trackMovies.id:
+      case trackMovies?.id:
         this.hideOrShowNextButton(trackMovies,nextMovies);
         break;
       case trackSeries.id:
@@ -63,14 +63,20 @@ export class MovieSearchViewComponent implements OnInit {
       case trackGames.id:
         this.hideOrShowNextButton(trackGames,nextGames);
         break;
+      default:
+        break;
     }
   }
 
   hideOrShowNextButton(track:HTMLElement, next:HTMLElement, carouselWidth:number = this.getCarouselWidth()){
     if(track?.offsetWidth < carouselWidth){
+      console.log('adds ' + track.id);
+      
       next.classList.add('hide');
     }
     else{
+      console.log('removes ' + track.id);
+      
       next.classList.remove('hide');
     }
   }
