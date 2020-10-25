@@ -1,11 +1,11 @@
 <div [ngClass]="setClasses()" *ngIf="searchResult">
 
-  <div class="container" *ngIf="ifSeriesExist('movie')">Movies:</div>
-  <div *ngIf="ifSeriesExist('movie')" class="carousel-container">
+  <div class="container" *ngIf="ifTypeExist('movie')">Movies:</div>
+  <div *ngIf="ifTypeExist('movie')" class="carousel-container">
     <div class="carousel-inner">
-      <div id="movies" class="track">
+      <div #trackMovies id="movies" class="track">
         <div class="card-container" *ngFor="let item of getOneType('movie')">
-          <div class="card">
+          <div *ngIf="item.Poster !== 'N/A'" class="card">
             <!-- <div class="info" >
               {{item.Title}} - {{item.Year}}
             </div>  -->
@@ -24,12 +24,12 @@
     </div>
   </div>
 
-  <div class="container" *ngIf="ifSeriesExist('series')">Series:</div>
-  <div *ngIf="ifSeriesExist('series')" class="carousel-container">
+  <div class="container" *ngIf="ifTypeExist('series')">Series:</div>
+  <div *ngIf="ifTypeExist('series')" class="carousel-container">
     <div class="carousel-inner">
-      <div id="series" class="track">
+      <div #trackSeries id="series" class="track">
         <div class="card-container" *ngFor="let item of getOneType('series'); let i = index">
-          <div class="card">
+          <div *ngIf="item.Poster !== 'N/A'" class="card">
             <img class="poster" id="{{i}}" src="{{item.Poster}}" alt="Image not available.."/>
             <div class="movie" >
               <!--<h4><b>{{search.Title}} ({{search.Year}})</b></h4>-->
@@ -48,12 +48,12 @@
     </div>
   </div>
 
-  <div class="container" *ngIf="ifSeriesExist('game')">Games:</div>
-  <div *ngIf="ifSeriesExist('game')" class="carousel-container">
+  <div class="container" *ngIf="ifTypeExist('game')">Games:</div>
+  <div *ngIf="ifTypeExist('game')" class="carousel-container">
     <div class="carousel-inner">
-      <div id="games" class="track">
+      <div #trackGames id="games" class="track">
         <div class="card-container" *ngFor="let item of getOneType('game')">
-          <div class="card">
+          <div *ngIf="item.Poster !== 'N/A'" class="card">
             <img class="poster" src="{{item.Poster}}" alt="Image not available.."/>
             <div class="movie" >
               <!--<h4><b>{{search.Title}} ({{search.Year}})</b></h4>-->

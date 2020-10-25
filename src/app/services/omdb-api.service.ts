@@ -25,7 +25,7 @@ export class OmdbApiService {
   constructor(private http:HttpClient) { }
 
 
-  searchMovies(searchText:string = this.testString):Observable<SearchResult>{
+  searchMovies(searchText:string):Observable<SearchResult>{
     const res = this.http.get<SearchResult>(`${this.SearchString + searchText + this.apiKey}`)
     .pipe(
       retry(3),

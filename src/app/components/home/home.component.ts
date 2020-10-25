@@ -57,19 +57,15 @@ export class HomeComponent implements OnInit {
 
   searchAPI(searchText:string){
     this.omdServices.searchMovies(searchText).subscribe(search => {
-      console.log(search);
       this.searches = search; 
-
     }, (error) => {
-      console.log('error occured: ', error);
-
+      //console.log('error occured: ', error);
     });
   }
 
   buttonClicked(){
     var name=document.getElementById('searchText').nodeValue;
     console.log("I was pressed: ", name);
-    
   }
 
 }
