@@ -6,6 +6,11 @@
     padding: 0;
 }
 
+.searchResult{
+    margin: 0 5%;
+    overflow: hidden;
+}
+
 .container{
     text-align: center;
 }
@@ -15,13 +20,10 @@ $picWidth:200px;
 $picHeight:($picWidth / (4/6));
 
 .carousel-container{
-	width: 80%;
+	width: auto;
 	margin: 50px auto;
     min-height: 200px;
     position: relative;
-}
-.carousel-container .carousel-inner{
-    overflow: hidden;
 }
 
 .carousel-container .track{
@@ -56,13 +58,13 @@ $picHeight:($picWidth / (4/6));
 
 .nav{
     .prevMovies, .prevSeries, .prevGames{
-        left: -30px;
+        left: 0px;
         display: none;
     }
     
 
     .nextMovies, .nextSeries, .nextGames{
-        right: -30px;
+        right: 0px;
     }
     .nextMovies.hide{
         display: none;
@@ -120,22 +122,17 @@ $picHeight:($picWidth / (4/6));
 }
 .repl-poster:hover{
     transition: 500ms;
-    height: $picHeight + 50;
-    width: $picWidth + 50;
-    box-shadow: 15px 15px 15px black;
-    margin-bottom: 30px;
+    box-shadow: 10px 10px 15px black;
+    border-radius: 10%;
     cursor: pointer;
 }
 
 
 .card:hover{
-
+    
     .poster:hover{
         transition: 500ms;
-        height: $picHeight + 50;
-        width: $picWidth + 50;
-        box-shadow: 15px 15px 15px black;
-        margin-bottom: 30px;
+        box-shadow: 10px 10px 15px black;
         border-radius: 10%;
         cursor: pointer;
         

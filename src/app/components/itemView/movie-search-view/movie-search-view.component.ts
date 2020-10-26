@@ -143,7 +143,7 @@ export class MovieSearchViewComponent implements OnInit {
           prev.classList.add('show');
         }      
         if((index * carouselWidth) > (track.offsetWidth - carouselWidth)){
-          track.style.transform = `translateX(-${track.offsetWidth - carouselWidth}px)`;        
+          track.style.transform = `translateX(-${track.offsetWidth - carouselWidth+10}px)`;        
           next.classList.add('hide');
         }else{
           track.style.transform = `translateX(-${index * carouselWidth}px)`;        
