@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 
 import {OmdbApiService} from '../../services/omdb-api.service';
 import {SearchResult} from '../../Models/Search';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -15,13 +17,13 @@ export class HomeComponent implements OnInit {
 
   searches:SearchResult;
 
-  constructor(private omdServices:OmdbApiService, private fb:FormBuilder) { }
+  constructor(private omdServices:OmdbApiService, private fb:FormBuilder,public dialog: MatDialog) { }
 
   ngOnInit(): void {
 
     //this.searchAPI('futurama');
 
-    this.movieSearchForm = this.fb.group({
+/*     this.movieSearchForm = this.fb.group({
       searchText:''
     });
 
@@ -30,7 +32,16 @@ export class HomeComponent implements OnInit {
       
       this.searchAPI(c);
       
-    });
+    }); */
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = "tt1825683";
+
+    let dialogRef = this.dialog.open(DialogComponent,dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');      
+    })
   }
 
   //Gets Array of Movies/Series/Other based on typ string

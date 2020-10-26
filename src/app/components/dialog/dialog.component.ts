@@ -25,6 +25,8 @@ export class DialogComponent implements OnInit {
     this.omdbServices.getMovieByID(this.imdbID).subscribe(movieInfo => {
       this.movie = movieInfo
     });
+
+    this.dialogRef.updateSize('50%');
     
   }
 

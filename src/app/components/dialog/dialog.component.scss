@@ -1,0 +1,50 @@
+*{
+  box-sizing: border-box;
+}
+.center{
+  text-align: center;
+}
+
+.container{
+  max-height: 90vh;
+}
+.row{
+  width: 100%;
+  display: inline-flex;
+  margin-bottom: 2rem;
+  .col{
+    display: block;
+    width: 100%;
+  }
+}
+
+
+#top{
+  height: 50%;
+  .row{
+    text-align: left;
+  }
+  .right{
+    text-align: right;
+  }
+}
+
+
+#bottom{
+  .col{
+    text-align: left;
+  }
+}
+
+h4{
+  margin:0;
+}
+.plot{
+  background-color: gray;
+  border-radius: 30px;
+  h3{
+    margin: 0 25%;
+  }
+}
+
+
