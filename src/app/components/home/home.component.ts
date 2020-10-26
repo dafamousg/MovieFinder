@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 
 import {OmdbApiService} from '../../services/omdb-api.service';
-import {Movie} from '../../Models/movies';
 import {SearchResult} from '../../Models/Search';
 
 @Component({
@@ -14,7 +13,6 @@ export class HomeComponent implements OnInit {
 
   movieSearchForm:FormGroup;
 
-  movies:Movie[];
   searches:SearchResult;
 
   constructor(private omdServices:OmdbApiService, private fb:FormBuilder) { }
