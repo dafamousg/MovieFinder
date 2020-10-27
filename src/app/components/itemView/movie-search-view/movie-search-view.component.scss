@@ -25,6 +25,9 @@ $picHeight:($picWidth / (4/6));
     min-height: 200px;
     position: relative;
 }
+.carousel-container .carousel-inner{
+    padding: 0 2%;
+}
 
 .carousel-container .track{
     display: inline-flex;
@@ -34,7 +37,7 @@ $picHeight:($picWidth / (4/6));
 .carousel-container .card-container{
 	width: auto;
 	height: auto;
-	padding-right: 15px;
+	padding-right: 40px;
 }
 .carousel-container .card-container .card{
     width: 100%;
@@ -46,12 +49,13 @@ $picHeight:($picWidth / (4/6));
 .nav button{
     width: 60px;
     height: 60px;
-    background: linear-gradient(rgba(255, 255, 255, 0.3), rgb(255, 255, 255,.8));
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
     border-radius: 50%;
     border: 1px solid #aaa;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    color: #fff;
     cursor: pointer;
 
 }
@@ -97,6 +101,8 @@ $picHeight:($picWidth / (4/6));
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
+    opacity: 0.8;
+    box-shadow: -7px -4px 16px;
 }
 .info{
     top: 0;
@@ -115,27 +121,40 @@ $picHeight:($picWidth / (4/6));
     border: 2px solid black;
     overflow: hidden;
     transition: 500ms;
+    opacity: 0.8;
+    box-shadow: -7px -4px 16px;
 
     p{
         padding: 0 5%;
     }
 }
 .repl-poster:hover{
-    transition: 500ms;
-    box-shadow: 10px 10px 15px black;
+    box-shadow: 14px 20px 20px;
     border-radius: 10%;
     cursor: pointer;
+    opacity: 1;
 }
 
 
-.card:hover{
-    
-    .poster:hover{
-        transition: 500ms;
-        box-shadow: 10px 10px 15px black;
-        border-radius: 10%;
-        cursor: pointer;
-        
+.poster:hover{
+    box-shadow: 14px 20px 20px;
+    border-radius: 10%;
+    cursor: pointer;
+    //background: linear-gradient(to top right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+    opacity: 1;
+}
+
+
+@media screen and (max-width: 1024px){
+    .carousel-container .carousel-inner{
+        overflow: scroll;
     }
-    
+
+    .nav button{
+        display: none !important;
+    }
+
+    .track{
+        margin: 10% 0 0 5%;
+    }
 }
