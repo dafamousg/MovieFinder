@@ -25,14 +25,31 @@ export class DialogComponent implements OnInit {
     this.omdbServices.getMovieByID(this.imdbID).subscribe(movieInfo => {
       this.movie = movieInfo
     });
+
+    this.checkWindowSize(window.innerWidth,this.dialogRef);
     window.addEventListener('resize',()=>{
-      if(window.innerWidth > 1400){
-        this.dialogRef.updateSize('50%');
-      }if(window.innerWidth > 1200){
-        this.dialogRef.updateSize('60%');
-      }else{
-        this.dialogRef.updateSize('100%');
-      }
+      this.checkWindowSize(window.innerWidth,this.dialogRef);
     });
+
   }
+
+
+  checkWindowSize(windowWidth:number, dialogRef: MatDialogRef<DialogComponent>){
+    if(windowWidth > 1400){
+      dialogRef.updateSize('50%');
+      console.log("Window Size" + windowWidth);
+      console.log("update Size: 50%");
+    }else if(windowWidth > 1200 && windowWidth){
+      dialogRef.updateSize('60%');
+      console.log("Window Size" + windowWidth);
+      console.log("update Size: 60%");
+    }else{
+      dialogRef.updateSize('100%');
+      console.log("Window Size" + windowWidth);
+      console.log("update Size: 100%");
+    }
+  }
+
+
+
 }
