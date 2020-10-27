@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 import {OmdbApiService} from '../../services/omdb-api.service';
 import {SearchResult} from '../../Models/Search';
@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   movieSearchForm:FormGroup;
 
   searches:SearchResult;
+  myControl = new FormControl();
 
   constructor(private omdServices:OmdbApiService, private fb:FormBuilder) { }
 

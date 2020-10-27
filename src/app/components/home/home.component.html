@@ -1,11 +1,19 @@
 <div class="container">
   <img src="https://i.pinimg.com/originals/be/b9/1c/beb91c4fb913bbb224d5e90c5d497016.gif">
-  <!--<img src="https://i.pinimg.com/originals/83/5d/69/835d69badf79fe6a3102e895c091a273.gif">-->
+  <!--<img src="https://i.pinimg.com/originals/83/5d/69/835d69badf79fe6a3102e895c091a273.gif">-->  
   <form [formGroup]="movieSearchForm" class="search-bar">
-    <input type="text" formControlName="searchText" required>
+    <input type="text" formControlName="searchText" matInput
+             formControlName="searchText"
+             [formControl]="myControl"
+             [matAutocomplete]="auto" required>
     <button class="search-btn" type="button">
       <span>Search</span>
     </button>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of searches?.Search" [value]="option.Title">
+        {{option.Title}}
+      </mat-option>
+    </mat-autocomplete>
   </form>
 </div>
 
