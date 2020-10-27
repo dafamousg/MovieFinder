@@ -2,7 +2,7 @@
     <h2 mat-dialog-title>{{movie.Title}}</h2>
     <mat-dialog-content class="mat-typography center">
         <div id="top" class="row center">
-            <div class="col">
+            <div class="col small-hide">
                 <div class="row right">
                     <div class="col">
                         <div>
@@ -25,7 +25,7 @@
                             <h5>{{movie.Year}}</h5>
                         </div>
                     </div>
-                    <div class="col right">
+                    <div class="col">
                         <div>
                             <h4>Type</h4>
                             <h5>{{movie.Type}}</h5>
@@ -38,17 +38,48 @@
                 <div class="col"><h4>{{movie.imdbRating}}/10</h4></div>
             </div>
             <div class="col">
-                <div class="row">
-                    <div>
+                <div class="row left">
+                    <div class="col">
                         <h4>Genre</h4>
                         <h5>{{movie.Genre}}</h5>
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div>
+                <div class="row left">
+                    <div class="col">
                         <h4>Language</h4>
                         <h5>{{movie.Language}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col small-show">
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <h4>Runtime</h4>
+                            <h5>{{movie.Runtime}}</h5>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <h4>Rated</h4>
+                            <h5>{{movie.Rated}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <h4>Aired</h4>
+                            <h5>{{movie.Year}}</h5>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <h4>Type</h4>
+                            <h5>{{movie.Type}}</h5>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -76,6 +107,7 @@
                     <h5>{{movie.Director}}</h5>
                 </div>
             </div>
+            <div id="break" class="col"></div>
             <div class="col">
                 <div>
                     <h4>Country</h4>

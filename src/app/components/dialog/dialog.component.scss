@@ -35,10 +35,16 @@
   .right{
     text-align: right;
   }
+  .small-show{
+    display: none;
+  }
 }
 
 
 #bottom{
+  background: rgba(128, 128, 128, 0.3);
+  padding: 2%;
+  border-radius: 10px;
   .col{
     text-align: left;
   }
@@ -48,11 +54,53 @@ h4{
   margin:0;
 }
 .plot{
-  background-color: gray;
-  border-radius: 30px;
+  background: rgba(128, 128, 128, 0.3);
+  border-radius: 10px;
   h3{
     margin: 0 25%;
   }
 }
 
+#break{
+  width: 20%;
+}
+
+@media screen and (max-width: 900px){
+  #top{
+    .col{
+      text-align: center;
+    }
+    .right{
+      text-align: left;
+    }
+  }
+  .plot{
+    h3{
+      margin: 0;
+      padding: 2% 0;
+    }
+  }
+}
+
+@media screen and (max-width: 650px){
+  #top{
+    position: relative;
+    display: block;
+    background: rgba(128, 128, 128, 0.3);
+    border-radius: 10px;
+    .row{
+      padding: 0 2%;
+      margin-bottom: 0;
+      .col{
+        text-align: left;
+      }
+    }
+    .small-hide{
+      display: none;
+    }
+    .small-show{
+      display: contents;
+    }
+  }
+}
 
