@@ -9,4 +9,5 @@ export class Search{
 export class SearchResult{
     Search:[Search];
     totalResult:string;
+    Response:string;
 }

@@ -21,4 +21,5 @@ export class Movie{
     Type:string;
     totalSeasons:string;
     imdbID:string;
+    imdbRating:string;
 }
