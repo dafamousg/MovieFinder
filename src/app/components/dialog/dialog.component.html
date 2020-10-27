@@ -35,6 +35,7 @@
             </div>
             <div class="col">
                 <img src="{{movie.Poster}}" alt="no image" style="width: 200px; height: 300px;">
+                <div class="col"><h4>{{movie.imdbRating}}/10</h4></div>
             </div>
             <div class="col">
                 <div class="row">
@@ -52,30 +53,23 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col plot">
-                <div class="col">{{movie.imdbRating}}</div>
-                <h3>{{movie.Plot}}</h3>
-                <h3>{{movie.Plot}}</h3>
-                <h3>{{movie.Plot}}</h3>
-                <h3>{{movie.Plot}}</h3>
-                <h3>{{movie.Plot}}</h3>
-                <h3>{{movie.Plot}}</h3>
-                <h3>{{movie.Plot}}</h3>
-                <h3>{{movie.Plot}}</h3>
+        <div class="noView">
+            <div class="row">
+                <div class="col plot">
+                    <h3>{{movie.Plot}}</h3>
+                </div>
             </div>
-        </div>
-        <div id="bottom" class="row">
-            <div class="col">
-                <div>
-                    <h4>Writers</h4>
-                    <h5>{{movie.Writer}}</h5>
-                </div>
-                <br>
-                <div>
-                    <h4>Actors</h4>
-                    <h5>{{movie.Actors}}</h5>
-                </div>
+            <div id="bottom" class="row">
+                <div class="col">
+                    <div>
+                        <h4>Writers</h4>
+                        <h5>{{movie.Writer}}</h5>
+                    </div>
+                    <br>
+                    <div>
+                        <h4>Actors</h4>
+                        <h5>{{movie.Actors}}</h5>
+                    </div>
                 <br>
                 <div>
                     <h4>Directors</h4>
@@ -96,5 +90,6 @@
                 <h4><a href="https://www.imdb.com/title/{{movie.imdbID}}">Press to see {{movie.Type}} on IMDB</a></h4>
             </div>
         </div>
+    </div>
     </mat-dialog-content>
 </div>

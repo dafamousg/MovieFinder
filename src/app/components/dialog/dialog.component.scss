@@ -18,8 +18,16 @@
   }
 }
 
-
+.noView{
+  position: relative;
+  z-index: 5;
+  background: #424242;
+}
 #top{
+  z-index: 1;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
   height: 50%;
   .row{
     text-align: left;
