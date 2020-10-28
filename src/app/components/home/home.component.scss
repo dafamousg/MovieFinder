@@ -145,7 +145,7 @@ button, input {
 .search-bar input:hover,
 .search-bar input:focus,
 .search-bar input:valid {
-	background: #262a2b;
+	background: #262a2bb3;
 	border-radius: 0.375em 0 0 0.375em;
 	box-shadow: 0 0 0 0.1em #d9d9d900 inset;
 	transform: scale(1);
@@ -196,7 +196,7 @@ button, input {
 .search-bar input:hover + .search-btn,
 .search-bar input:focus + .search-btn,
 .search-bar input:valid + .search-btn {
-	background: #2762f3;
+	background: #262a2b;
 	border-radius: 0 0.375em 0.375em 0;
 	transform: scale(1);
 	
@@ -225,7 +225,7 @@ button, input {
 		color: #f1f1f1;
 	}
 	.search-bar input {
-		box-shadow: 0 0 0 0.4em #1a5cf7 inset;
+		box-shadow: 0 0 0 0.4em rgba(255,255,255,.7) inset;
 	}
 	.search-bar input:focus,
 	.search-bar input:valid {
@@ -233,7 +233,7 @@ button, input {
 		box-shadow: 0 0 0 0.1em #262a2b inset;
 	}
 	.search-btn {
-		background: #1a5cf7;
+		background: rgba(255,255,255,.7);
 	}
 }
 
