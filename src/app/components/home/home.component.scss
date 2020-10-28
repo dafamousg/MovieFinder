@@ -19,6 +19,22 @@
 	}
 }
 
+.mat-radio-button{
+	padding-right: 30px;
+	font-weight: bold;
+	padding-left: 0;
+	font-family: sans-serif;
+	text-transform: uppercase;
+	transition: 500ms;
+}
+
+.mat-radio-button:hover,
+.mat-radio-button:active,
+.mat-radio-button:focus{
+	color: #69f0ae;
+}
+
+
 
 .scrolling-wrapper{
   overflow-x: hidden;
@@ -71,7 +87,7 @@ button, input {
 	.radioBtn{
 		position: absolute;
 		display: block;
-		margin-top: 8vh;
+		margin-top: 60px;
 	}
 }
 
@@ -204,5 +220,18 @@ button, input {
 	}
 	.search-btn {
 		background: #171717;
+	}
+}
+
+
+@media screen and (max-width: 480px){
+	.mat-radio-button{
+		padding-right: 10px;
+	}
+}
+
+@media screen and (max-width: 350px){
+	.mat-radio-button{
+		padding-right: 0;
 	}
 }
