@@ -206,6 +206,11 @@ button, input {
 	transform: translateY(1px);
 }
 
+
+.bottom{
+	height: 100px;
+}
+
 @media screen and (prefers-color-scheme: dark) {
 	input {
 		color: #f1f1f1;
