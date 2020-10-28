@@ -65,7 +65,7 @@ $picHeight:($picWidth / (4/6));
     position: relative;
 }
 .carousel-container .carousel-inner{
-    background: url(../../../../assets/woodshelf.webp);
+    background: linear-gradient(rgb(17, 12, 8, 0.8),rgb(0, 0, 0, 0),rgb(17, 12, 8, 0.42)), url(../../../../assets/woodshelf.webp);
     padding: 2%;
     border-radius: 30px 30px 20px 20px;
 }

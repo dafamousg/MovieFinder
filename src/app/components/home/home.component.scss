@@ -40,7 +40,7 @@
 .mat-radio-button:active,
 .mat-radio-button:focus{
 	background-size: 80%;
-        animation: animate 3s linear infinite;
+  animation: animate 3s linear infinite;
 }
 
 
@@ -81,7 +81,8 @@ img{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
+	width: 30%;
+	border-radius: 50px;
 }
 
 
@@ -97,6 +98,7 @@ button, input {
 		position: absolute;
 		display: block;
 		margin-top: 60px;
+		text-align: center;
 	}
 }
 
@@ -237,10 +239,20 @@ button, input {
 	}
 }
 
+@media screen and (max-width: 1024px){
+	
+	img{
+		width: 60%;
+		border-radius: 50px;
+	}
+}
+
 
 @media screen and (max-width: 480px){
 	.mat-radio-button{
-		padding-right: 10px;
+		padding: 5%;
+		font-weight: normal;
+		letter-spacing: 0;
 	}
 }
 
