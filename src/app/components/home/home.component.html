@@ -14,6 +14,11 @@
         {{option.Title}}
       </mat-option>
     </mat-autocomplete>
+    <mat-radio-group class="radioBtn" formControlName="searchType" aria-label="Select an option">
+      <mat-radio-button *ngFor="let movieType of Type" [value]="movieType">
+        {{movieType}}
+      </mat-radio-button>
+    </mat-radio-group>
   </form>
 </div>
 

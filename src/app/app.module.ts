@@ -5,11 +5,12 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MovieSearchViewComponent } from './components/itemView/movie-search-view/movie-search-view.component';
 import { DialogComponent } from './components/dialog/dialog.component';
@@ -30,7 +31,9 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatDialogModule,
     MatFormFieldModule,
     MatAutocompleteModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule,
+    FormsModule
   ],
   exports: [
      MatFormFieldModule, 

@@ -65,8 +65,14 @@ button, input {
 	font: 1em Hind, sans-serif;
 	line-height: 1.5em;
 }
+
 .search-bar {
 	display: flex;
+	.radioBtn{
+		position: absolute;
+		display: block;
+		margin-top: 8vh;
+	}
 }
 
 .search-bar input,
@@ -83,6 +89,7 @@ button, input {
 .search-btn {
 	cursor: pointer;
 }
+
 .search-bar,
 .search-bar input:hover,
 .search-bar input:focus,
@@ -167,6 +174,7 @@ button, input {
 	background: #2762f3;
 	border-radius: 0 0.375em 0.375em 0;
 	transform: scale(1);
+	
 }
 .search-bar input:hover + .search-btn:before, 
 .search-bar input:hover + .search-btn:after,
