@@ -6,6 +6,9 @@
     padding: 0;
 }
 
+$picWidth:200px;
+$picHeight:($picWidth / (4/6));
+
 .searchResult{
     margin: 0 5%;
     overflow: hidden;
@@ -47,16 +50,14 @@
 
 @keyframes animate {
     0% {
-      background-position: -500%;
+        background-position: -500%;
     }
     100% {
-      background-position: 500%;
+        background-position: 500%;
     }
-  }
+}
 
 
-$picWidth:200px;
-$picHeight:($picWidth / (4/6));
 
 .carousel-container{
 	width: auto;
