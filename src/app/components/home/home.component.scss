@@ -21,17 +21,26 @@
 
 .mat-radio-button{
 	padding-right: 30px;
-	font-weight: bold;
 	padding-left: 0;
+	font-weight: bold;
+	font-size: larger;
+	letter-spacing: 2px;
 	font-family: sans-serif;
 	text-transform: uppercase;
+	background: linear-gradient(90deg, #1a5cf7, #69f0ae, #1a5cf7);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-clip: border-box;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: rgba(0, 0, 0, .5);
 	transition: 500ms;
 }
 
 .mat-radio-button:hover,
 .mat-radio-button:active,
 .mat-radio-button:focus{
-	color: #69f0ae;
+	background-size: 80%;
+        animation: animate 3s linear infinite;
 }
 
 
@@ -216,7 +225,7 @@ button, input {
 		color: #f1f1f1;
 	}
 	.search-bar input {
-		box-shadow: 0 0 0 0.4em #171717 inset;
+		box-shadow: 0 0 0 0.4em #1a5cf7 inset;
 	}
 	.search-bar input:focus,
 	.search-bar input:valid {
@@ -224,7 +233,7 @@ button, input {
 		box-shadow: 0 0 0 0.1em #262a2b inset;
 	}
 	.search-btn {
-		background: #171717;
+		background: #1a5cf7;
 	}
 }
 

@@ -142,7 +142,7 @@ $picHeight:($picWidth / (4/6));
     background-repeat: no-repeat;
     text-align: center;
     opacity: 0.8;
-    box-shadow: -7px -4px 16px;
+    box-shadow: -24px -20px 16px;
 }
 .info{
     top: 0;
@@ -177,7 +177,7 @@ $picHeight:($picWidth / (4/6));
 
 
 .poster:hover{
-    box-shadow: 14px 20px 20px;
+    box-shadow: -24px 28px 20px;
     border-radius: 10%;
     cursor: pointer;
     //background: linear-gradient(to top right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
@@ -200,6 +200,14 @@ $picHeight:($picWidth / (4/6));
 }
 
 @media screen and (max-width: 480px){
+
+    .carousel-container
+    .carousel-inner{
+        border-radius: 20px;
+    }
+    .searchResult{
+        margin: 0 1%;
+    }
         
     .label{
         margin: 100px 0 0 25px;
