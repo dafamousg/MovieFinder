@@ -27,7 +27,7 @@
         font-weight: bold;
         letter-spacing: 4px;
         overflow: hidden;
-        background: linear-gradient(90deg, #ff0505, #000, #ff0505);
+        background: linear-gradient(90deg, #1a5cf7, #e9fffb, #1a5cf7);
         background-repeat: no-repeat;
         background-size: 100%;
         background-clip: border-box;
@@ -64,10 +64,8 @@ $picHeight:($picWidth / (4/6));
     position: relative;
 }
 .carousel-container .carousel-inner{
-    background: rgba(0, 0, 0, .58);
+    background: url(../../../../assets/woodshelf.webp);
     padding: 2%;
-    border-bottom: 1px solid;
-    box-shadow: 0px -3px 33px;
     border-radius: 30px;
 }
 
