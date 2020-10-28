@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 import {OmdbApiService} from '../../services/omdb-api.service';
 import {SearchResult} from '../../Models/Search';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,11 @@ import {SearchResult} from '../../Models/Search';
 })
 export class HomeComponent implements OnInit {
 
-  movieSearchForm:FormGroup;
-
   searches:SearchResult;
+  searchType:string;
+  movieSearchForm:FormGroup;
+  myControl = new FormControl();
+  Type: string[] = ['Any', 'Movie', 'Series', 'Game'];
 
   constructor(private omdServices:OmdbApiService, private fb:FormBuilder) { }
 
@@ -22,13 +25,25 @@ export class HomeComponent implements OnInit {
     //this.searchAPI('futurama');
 
     this.movieSearchForm = this.fb.group({
-      searchText:''
+      searchText:'',
+      searchType:'any'
     });
-
-    this.movieSearchForm.valueChanges.subscribe(() => {
+    
+    
+    this.movieSearchForm.valueChanges.pipe(debounceTime(400)).subscribe(() => {
       let c = this.movieSearchForm.get('searchText').value;
+      let type:string = this.movieSearchForm.get('searchType').value;
       
-      this.searchAPI(c);
+      if(type === undefined || type?.toLowerCase() === 'any'){
+        this.searchAPI(c);
+      }else if(!c){
+
+      }
+      else{
+        let typeAttribute = type+"&"
+        this.searchAPI(c, typeAttribute);
+      }
+      
       
     });
   }
@@ -53,8 +68,8 @@ export class HomeComponent implements OnInit {
     return false;
   }
 
-  searchAPI(searchText:string){
-    this.omdServices.searchMovies(searchText).subscribe(search => {
+  searchAPI(searchText:string, searchType:string = undefined){
+    this.omdServices.searchMovies(searchText, searchType).subscribe(search => {
       this.searches = search; 
     }, (error) => {
       //console.log('error occured: ', error);

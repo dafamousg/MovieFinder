@@ -9,6 +9,32 @@
 	//height: 90vh;
 //}
 
+.example-form{
+	text-align: center;
+	input{
+		color: #171717;
+	}
+	.mat-form-field{
+		color: white;
+	}
+}
+
+.mat-radio-button{
+	padding-right: 30px;
+	font-weight: bold;
+	padding-left: 0;
+	font-family: sans-serif;
+	text-transform: uppercase;
+	transition: 500ms;
+}
+
+.mat-radio-button:hover,
+.mat-radio-button:active,
+.mat-radio-button:focus{
+	color: #69f0ae;
+}
+
+
 
 .scrolling-wrapper{
   overflow-x: hidden;
@@ -55,8 +81,14 @@ button, input {
 	font: 1em Hind, sans-serif;
 	line-height: 1.5em;
 }
+
 .search-bar {
 	display: flex;
+	.radioBtn{
+		position: absolute;
+		display: block;
+		margin-top: 60px;
+	}
 }
 
 .search-bar input,
@@ -73,6 +105,7 @@ button, input {
 .search-btn {
 	cursor: pointer;
 }
+
 .search-bar,
 .search-bar input:hover,
 .search-bar input:focus,
@@ -157,6 +190,7 @@ button, input {
 	background: #2762f3;
 	border-radius: 0 0.375em 0.375em 0;
 	transform: scale(1);
+	
 }
 .search-bar input:hover + .search-btn:before, 
 .search-bar input:hover + .search-btn:after,
@@ -170,6 +204,11 @@ button, input {
 .search-bar input:focus + .search-btn:active,
 .search-bar input:valid + .search-btn:active {
 	transform: translateY(1px);
+}
+
+
+.bottom{
+	height: 100px;
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -186,5 +225,18 @@ button, input {
 	}
 	.search-btn {
 		background: #171717;
+	}
+}
+
+
+@media screen and (max-width: 480px){
+	.mat-radio-button{
+		padding-right: 10px;
+	}
+}
+
+@media screen and (max-width: 350px){
+	.mat-radio-button{
+		padding-right: 0;
 	}
 }
