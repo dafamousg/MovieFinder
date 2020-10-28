@@ -11,9 +11,48 @@
     overflow: hidden;
 }
 
-.container{
-    text-align: center;
+.label{
+    margin: 100px 0 25px 2%;
+    padding: 0 10px;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: -7px -4px 20px;
+    border-radius: 6px 50px 50px 6px;
+
+    p {
+        position: relative;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        font-size: 2em;
+        font-weight: bold;
+        letter-spacing: 4px;
+        overflow: hidden;
+        background: linear-gradient(90deg, #ff0505, #000, #ff0505);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: rgba(0, 0, 0, .5);
+        transition: 500ms;
+    }
 }
+
+.label:hover{ 
+    p:hover{
+        background-size: 80%;
+        animation: animate 3s linear infinite;
+    }
+    
+}
+
+@keyframes animate {
+    0% {
+      background-position: -500%;
+    }
+    100% {
+      background-position: 500%;
+    }
+  }
 
 
 $picWidth:200px;
@@ -21,7 +60,6 @@ $picHeight:($picWidth / (4/6));
 
 .carousel-container{
 	width: auto;
-	margin: 50px auto;
     min-height: 200px;
     position: relative;
 }
@@ -153,8 +191,25 @@ $picHeight:($picWidth / (4/6));
     .nav button{
         display: none !important;
     }
-
+    
     .track{
-        margin: 10% 0 0 5%;
+        margin: 22px 0 0 22px;
     }
+}
+
+@media screen and (max-width: 480px){
+        
+    .label{
+        margin: 100px 0 0 25px;
+        p{
+            font-size: 1.5em;
+            letter-spacing: 0;
+        }
+    }
+    .poster,
+    .repl-poster{
+        width: $picWidth/1.5;
+        height: $picHeight/1.5;
+    }
+    
 }

@@ -73,10 +73,10 @@ export class MovieSearchViewComponent implements OnInit {
       case trackMovies?.id:
         this.hideOrShowNextButton(trackMovies,nextMovies);
         break;
-      case trackSeries.id:
+      case trackSeries?.id:
         this.hideOrShowNextButton(trackSeries,nextSeries);
         break;
-      case trackGames.id:
+      case trackGames?.id:
         this.hideOrShowNextButton(trackGames,nextGames);
         break;
       default:
