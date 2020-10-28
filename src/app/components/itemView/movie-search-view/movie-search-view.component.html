@@ -6,7 +6,7 @@
       <div #trackMovies id="movies" class="track">
         <div class="card-container" *ngFor="let item of getOneType('movie')">
           <div class="card" (click)="openDialog(item.imdbID)">
-            <img *ngIf="item.Poster !== 'N/A'" class="poster" src="{{item.Poster}}" alt="{{item.Title}}"/>
+            <img *ngIf="item.Poster !== 'N/A'" class="poster" src="{{item.Poster}}" alt="{{item.Title}}" style="width: 200px; height: 300px;"/>
             <div *ngIf="item.Poster === 'N/A'" class="repl-poster">
               <p>{{item.Title}}</p>
             </div>
@@ -30,7 +30,7 @@
       <div #trackSeries id="series" class="track">
         <div class="card-container" *ngFor="let item of getOneType('series'); let i = index">
           <div class="card" (click)="openDialog(item.imdbID)">
-            <img *ngIf="item.Poster !== 'N/A'" class="poster" id="{{i}}" src="{{item.Poster}}" alt="Image not available.."/>
+            <img *ngIf="item.Poster !== 'N/A'" class="poster" src="{{item.Poster}}" alt="{{item.Title}}" style="width: 200px; height: 300px;"/>
             <div *ngIf="item.Poster === 'N/A'" class="repl-poster">
               <p>{{item.Title}}</p>
             </div>
@@ -54,7 +54,7 @@
       <div #trackGames id="games" class="track">
         <div class="card-container" *ngFor="let item of getOneType('game')">
           <div class="card" (click)="openDialog(item.imdbID)">
-            <img *ngIf="item.Poster !== 'N/A'" class="poster" src="{{item.Poster}}" alt="Image not available.."/>
+            <img *ngIf="item.Poster !== 'N/A'" class="poster" src="{{item.Poster}}" alt="{{item.Title}}" style="width: 200px; height: 300px;"/>
             <div *ngIf="item.Poster === 'N/A'" class="repl-poster">
               <p>{{item.Title}}</p>
             </div>

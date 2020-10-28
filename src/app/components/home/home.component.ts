@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 import {OmdbApiService} from '../../services/omdb-api.service';
 import {SearchResult} from '../../Models/Search';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -29,10 +30,10 @@ export class HomeComponent implements OnInit {
     });
     
     
-    this.movieSearchForm.valueChanges.subscribe(() => {
+    this.movieSearchForm.valueChanges.pipe(debounceTime(400)).subscribe(() => {
       let c = this.movieSearchForm.get('searchText').value;
       let type:string = this.movieSearchForm.get('searchType').value;
-
+      
       if(type === undefined || type?.toLowerCase() === 'any'){
         this.searchAPI(c);
       }else if(!c){

@@ -28,10 +28,9 @@ export class OmdbApiService {
 
 
   searchMovies(searchText:string, searchType:string = undefined):Observable<SearchResult>{
-    let res;
+    let res:any;
     
     if(searchType){
-      console.log(searchText);
       res = this.http.get<SearchResult>(`${this.urlApi + this.searchString + searchText +  this.type + searchType + this.apiKey}`)
     }else{
       res = this.http.get<SearchResult>(`${this.urlApi + this.searchString + searchText + this.apiKey}`)
