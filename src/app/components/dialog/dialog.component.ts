@@ -37,16 +37,10 @@ export class DialogComponent implements OnInit {
   checkWindowSize(windowWidth:number, dialogRef: MatDialogRef<DialogComponent>){
     if(windowWidth > 1400){
       dialogRef.updateSize('50%');
-      console.log("Window Size" + windowWidth);
-      console.log("update Size: 50%");
     }else if(windowWidth > 1200 && windowWidth){
       dialogRef.updateSize('60%');
-      console.log("Window Size" + windowWidth);
-      console.log("update Size: 60%");
     }else{
       dialogRef.updateSize('100%');
-      console.log("Window Size" + windowWidth);
-      console.log("update Size: 100%");
     }
   }
 

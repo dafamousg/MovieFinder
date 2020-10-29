@@ -76,9 +76,4 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  buttonClicked(){
-    var name=document.getElementById('searchText').nodeValue;
-    console.log("I was pressed: ", name);
-  }
-
 }

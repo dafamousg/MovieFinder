@@ -29,19 +29,34 @@ export class MovieSearchViewComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  ngDoCheck(){
+  async ngDoCheck(){
+    //await this.sleep(500);
+    
     if(this.trackMovies?.nativeElement.offsetWidth && this.trackMovies.nativeElement.offsetWidth !== this.trackMoviesWidth){
+      this.indexMovies = 0;
       this.trackMoviesWidth = this.trackMovies.nativeElement.offsetWidth;
       this.checkSizeOfTrack('movies');
     }
     if(this.trackSeries?.nativeElement.offsetWidth && this.trackSeries.nativeElement.offsetWidth !== this.trackSeriesWidth){
+      this.indexSeries = 0;
       this.trackSeriesWidth = this.trackSeries.nativeElement.offsetWidth;
       this.checkSizeOfTrack('series');
     }
     if(this.trackGames?.nativeElement.offsetWidth && this.trackGames.nativeElement.offsetWidth !== this.trackGamesWidth){
+      this.indexGames = 0;
       this.trackGamesWidth = this.trackGames.nativeElement.offsetWidth;
       this.checkSizeOfTrack('games');
     }
+    if(!this.trackSeries?.nativeElement.offsetWidth && !this.trackMovies?.nativeElement.offsetWidth && !this.trackGames?.nativeElement.offsetWidth){
+      this.indexMovies = 0;
+      this.indexSeries = 0;
+      this.indexGames = 0;
+      
+    }
+  }
+
+  sleep(ms:number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   openDialog(imdbID:string){
@@ -59,6 +74,7 @@ export class MovieSearchViewComponent implements OnInit {
   }
 
   checkSizeOfTrack(type:string){
+    
 
     let trackMovies:HTMLElement = document.getElementById('movies');
     let trackSeries:HTMLElement = document.getElementById('series');
